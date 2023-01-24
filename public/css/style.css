@@ -1,0 +1,256 @@
+body{
+    background-color: #F8F8F8;
+    font-family: 'Poppins Light';
+    
+}
+
+
+@font-face {
+    font-family: 'Poppins Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Poppins Bold'), url('../../fonts/Poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Poppins Light'), url('../../fonts/Poppins/Poppins-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Poppins Medium'), url('../../fonts/Poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Poppins Regular'), url('../../fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins SemiBold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Poppins SemiBold'), url('../../fonts/Poppins/Poppins-SemiBold.ttf');
+}
+
+
+
+
+
+
+
+a{
+    text-decoration: none !important;
+}
+
+nav{
+    
+}
+
+.boutton{
+    font-family: 'Poppins Regular';
+    color: #F04D9D;
+    padding: 0.5rem;
+    border: 0.12rem solid #F04D9D;
+    border-radius: 0.4rem;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.boutton:hover{
+    color: #ffffff;
+    background-color: #F04D9D;
+    border-radius: 0.4rem;
+}
+
+.chat{
+    height:  80%;
+    background-color: rgba(245, 245, 245, 0.456);
+    width: 100%;
+    margin: 2rem;
+    border: 0.12rem solid #cecece63;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: baseline
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+}
+  
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(191, 191, 191, 0);
+    border-radius: 1rem;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(191, 191, 191, 0.127);
+}
+
+
+
+.chat .input{
+    flex:auto;
+    width: auto;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.chat .message{
+    flex:80%;
+    width: auto;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.chat .message span{
+    border: 0.12rem solid #cecece16;
+    padding: 1rem;
+    margin: 0.2rem;
+    background-color: #f04d9c12;
+    border-radius: 1rem;
+    width: fit-content;
+    max-width: 70%;
+    box-shadow: 0px 0px 4px #00000012;
+    font-family: 'Poppins Light';
+    color: #232323;
+    margin-bottom: 1rem;
+}
+
+.chat .message span.droite{
+    margin-left: auto;
+    background-color: #ffffff;
+
+}
+
+
+
+.chat .input textarea{
+    flex: auto;
+    border: 0.12rem solid #cecece54;
+    border-radius: 0.4rem;
+    text-align: left;
+    height: min-content;
+    padding: 0.7rem;
+    font-family: 'Poppins Light';
+    overflow-y: scroll;
+}
+
+.chat .input textarea:focus{
+    outline: none;
+    border: 0.05rem solid #f04d9c44;
+}
+
+.chat .input div{
+    margin-left: 0.5rem;
+    height: fit-content;
+    
+}
+
+
+section{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.text{
+    justify-content: center !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+
+.titre{
+    color: #2B2B2B; 
+    font-family: 'Poppins Bold';  
+}
+
+.titre span{
+    color: #F04D9D;   
+    
+}
+
+.descrip{
+    font-family: 'Poppins Light';
+}
+
+.image{
+    padding: 1rem;
+    
+}
+.image svg{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.ConBout{
+    margin-top: 1rem !important;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.form h1.titreForm{
+    color: #F04D9D;
+    font-family: 'Poppins Bold'; 
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.formConnexion{
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    padding: 2rem;
+    background-color: #ffffff;
+    border: 0.1rem solid #99999941;
+    border-radius: .7rem;
+    box-shadow: 0px 0px 12px #00000028;
+}
+
+.form input, .form select{
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-family: 'Poppins Light';
+    border-radius: 0.4rem;
+    border: 0.1rem solid #a3a3a37a;
+    background-color: #fdfdfd;
+
+}
+
+.form input:focus , .form select:focus{
+    outline: none;
+    border: 0.1rem solid #f04d9c50;
+}
+
+.form input::placeholder{
+    color: #23232339;
+    
+}
+
+
+
+
