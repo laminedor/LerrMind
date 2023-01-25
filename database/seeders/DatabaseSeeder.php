@@ -15,10 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             PatientsTableSeeder::class,
-            PsychologistesTableSeeder::class,
             SpecialitiesTableSeeder::class,
-            PsychologistesSpecialitesTableSeeder::class,
-            
+            PsychologistesTableSeeder::class,       
         ]);
         // \App\Models\User::factory(10)->create();
     }

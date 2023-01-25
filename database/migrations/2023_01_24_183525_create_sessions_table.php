@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePsychologistesSpecialitesTable extends Migration
+class CreateSessionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreatePsychologistesSpecialitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('psychologistes_specialites', function (Blueprint $table) {
+        date_default_timezone_set('Africa/Dakar');
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->id();
+            $table->dateTime('dateCreation');
             $table->unsignedBigInteger('psychologiste_id');
-            $table->unsignedBigInteger('specialite_id');
+            $table->unsignedBigInteger('patient_id');
             $table->timestamps();
-            $table->unique(['psychologiste_id', 'specialite_id']);
             $table->foreign('psychologiste_id')->references('id')->on('psychologistes');
-            $table->foreign('specialite_id')->references('id')->on('specialites');
+            $table->foreign('patient_id')->references('id')->on('patients');
         });
     }
 
@@ -30,6 +32,6 @@ class CreatePsychologistesSpecialitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('psychologistes_specialites');
+        Schema::dropIfExists('sessions');
     }
 }

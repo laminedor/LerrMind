@@ -16,6 +16,7 @@ class SessionController extends Controller
         $patient = Auth::guard('patient')->user();
         
         $data = [
+            'dateCreation'=> date('Y-m-d H:i:s'),
             'psychologiste_id' => $idPsycologue,
             'patient_id' => $patient->id,
         ];

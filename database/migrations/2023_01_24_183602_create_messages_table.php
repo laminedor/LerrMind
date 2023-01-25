@@ -20,7 +20,7 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->text('content');
             $table->dateTime('dateSend');
-            $table->dateTime('dateReceive');
+            $table->dateTime('dateReceive')->nullable();
             $table->unsignedBigInteger('session_id');
             $table->enum('envoyeur', ['patient', 'psycologue']);
             $table->timestamps();

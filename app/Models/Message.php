@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $table = 'messages';
-    protected $fillable = ['id','content','date','session_id','envoyeur'];
+    protected $fillable = ['id','content','dateSend','session_id','envoyeur','dateReceive'];
     use HasFactory;
 
     public function store($data){
@@ -18,9 +18,15 @@ class Message extends Model
     }
 
 
-    public function recupereMessages($data){
+    public function recupereMessages($data){  
+        $data = $this::where('envoyeur',$data['envoyeur'])->where('dateReceive',NULL)->get();
         
-        $data = $this::where('envoyeur',$data['envoyeur'])->get();
+        if($data != null){
+            foreach($data as $dat){
+                $dat-> dateReceive = date('Y-m-d H:i:s');
+                $dat->save();
+            }
+        }
         return $data;
     }
 }

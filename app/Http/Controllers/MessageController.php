@@ -16,7 +16,7 @@ class MessageController extends Controller
     {
         date_default_timezone_set('Africa/Dakar');
         $data = [
-            'date'=> date('Y-m-d H:i:s'),
+            'dateSend'=> date('Y-m-d H:i:s'),
             'content'=>$request->message,
             'session_id'=>$request->idSession,
             'envoyeur'=>$request->envoyeur,
@@ -24,12 +24,12 @@ class MessageController extends Controller
 
 
         $ModelMessage = new Message();
-        $ModelMessage = $ModelMessage->store($data);
-    
+        $ModelMessage = $ModelMessage->store($data); 
     }
 
     public function recupSms(Request $request)
     {
+        $idSession = $request->input('idSession');
         date_default_timezone_set('Africa/Dakar');
 
         $patient = Auth::guard('patient')->user();
@@ -42,7 +42,7 @@ class MessageController extends Controller
 
 
         $data2 = [
-            'session_id'=>$request->idSession,
+            'session_id'=>$idSession,
             'envoyeur'=>$envoyeur,
         ];
         

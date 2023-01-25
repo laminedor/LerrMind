@@ -11,7 +11,7 @@ class Sessions extends Model
     protected $table = 'sessions';
     protected $fillable = [
         'id',
-        'date',
+        'dateCreation',
         'psychologiste_id',
         'patient_id',
     ];

@@ -11,17 +11,7 @@
         </div>
         <div id="message" class="message">
 
-            <span class="sms">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, distinctio fuga. Ad quam at possimus deleniti cumque accusamus praesentium labore odio, placeat dolorum minima recusandae numquam corrupti, fuga quisquam incidunt!
-            </span>
-
-            <span class="sms droite">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, distinctio fuga. Ad quam at possimus deleniti cumque accusamus praesentium labore odio, placeat dolorum minima recusandae numquam corrupti, fuga quisquam incidunt!
-            </span>
-
-            <span class="sms droite">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, distinctio fuga. Ad quam at possimus deleniti cumque accusamus praesentium labore odio, placeat dolorum minima recusandae numquam corrupti, fuga quisquam incidunt!
-            </span>
+            
             
             
         </div>
@@ -53,13 +43,14 @@
             var envoyeur='psycologue';
         }
         var idSession =  "{{$session->id}}";
+        var hauteur = $("#message").height();;
 
         $("#send").click(function(){
             var inputValue = $("#input").val();
             let sms=document.getElementById('message');
             
             
-            let data = {
+            var dataSend = {
                 _token: "{{ csrf_token() }}",
                 message: inputValue,      
                 idSession: idSession,
@@ -69,13 +60,13 @@
             $.ajax({
                 url: "{{ route('sendSms') }}",
                 type: "POST",
-                data: data,
+                data: dataSend,
                 success: function(response) {
                     let items = document.createElement('span');
                     items.innerText=inputValue;
                     items.classList.add("droite");
                     sms.appendChild(items);
-                    hauteur = $(sms).height();
+                    hauteur = hauteur + 2*$(items).height() ;
                     $(sms).scrollTop(hauteur);
                     $('#input').val(null);
                     
@@ -87,27 +78,25 @@
 
         function displayMessages() {
             let sms=document.getElementById('message');
-            let data = {
-                _token: "{{ csrf_token() }}",                
+            var dataReceive = {               
                 idSession: idSession,
             };
             $.ajax({
                 url: "{{ route('recupSms') }}",
-                type: "get",
-                data: data,
+                type: 'GET',
+                data: dataReceive,
                 success: function(response) {
-                    console.log(response.content);
                     for(i=0 ; i<response.length ; i++){
                         let items = document.createElement('span');
                         items.innerText=response[i].content;
                         sms.appendChild(items);
-                        hauteur = $(sms).height();
+                        hauteur = hauteur + 2*$(items).height();
                         $(sms).scrollTop(hauteur);
                     } 
                 }
             });
         }
 
-        //setInterval(displayMessages, 500);
+        setInterval(displayMessages, 500);
     </script>
 @endsection
