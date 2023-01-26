@@ -14,6 +14,7 @@ class Psycologue extends User
         'prenom',
         'email',
         'password',
+        'specialite_id',
     ];
     use HasFactory;
 

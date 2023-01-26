@@ -15,11 +15,17 @@ class MessageController extends Controller
     public function sendSms(Request $request)
     {
         date_default_timezone_set('Africa/Dakar');
+        $patient = Auth::guard('patient')->user();
+        $envoyeur = 'psycologue';
+        if($patient != null){
+            $envoyeur = 'patient';
+        }
+
         $data = [
             'dateSend'=> date('Y-m-d H:i:s'),
             'content'=>$request->message,
             'session_id'=>$request->idSession,
-            'envoyeur'=>$request->envoyeur,
+            'envoyeur'=>$envoyeur,
         ];
 
 

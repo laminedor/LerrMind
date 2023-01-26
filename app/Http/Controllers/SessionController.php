@@ -24,6 +24,6 @@ class SessionController extends Controller
         $SessionModel = new Sessions();
 
         $session = $SessionModel->saveSession($data);
-        return view('PageChat', compact('session'));
+        return view('PageChatPatient', compact('session'));
     }
 }

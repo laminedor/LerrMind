@@ -10,8 +10,8 @@ class ChatController extends Controller
 {
     //
 
-    public function homeChat(){
+    public function homeChatPatient(){
         
-        return view('PageChat');
+        return view('PageChatPatient');
     }
 }

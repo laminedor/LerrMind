@@ -31,7 +31,7 @@ Route::get('/login', function () {
 
 Route::POST('/sendSms', [MessageController::class, 'sendSms'])->name('sendSms');
 Route::get('/recupSms', [MessageController::class, 'recupSms'])->name('recupSms');
-Route::get('/chat', [ChatController::class, 'homeChat'])->name('homeChat');
+Route::get('/chat', [ChatController::class, 'homeChatPatient'])->name('homeChatPatient');
 Route::get('/chatPsycologue', [PsycologueController::class, 'chatPsycologue'])->name('chatPsycologue');
 Route::get('/listePsycologue', [PsycologueController::class, 'listePsycologue'])->name('listePsycologue');
 Route::get('/beginSession/{id}', [SessionController::class, 'beginSession'])->name('beginSession');
