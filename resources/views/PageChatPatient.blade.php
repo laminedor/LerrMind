@@ -1,21 +1,34 @@
 @extends('main')
 @section('ContenuePage')
-    <div class="ConBout">
-        <a  class="boutton" href="{{route('listePsycologue')}}">Trouver un Psycologue</a>
+        <section class="container chat ">
+            <div class="input">
+                <textarea name="input" id="input" ></textarea>
+                <div id="send" class="boutton" >Send</div>
+    
+            </div>
+            <div id="message" class="message">
+       
+            </div>
+        </section>
+        <section class="droiteChatPatient container">
+            <div class="">
+                <div class="AffichePsycho">
+                    <div class="headPsycho">
+                        <h3>{{$Psycologue->prenom}} {{$Psycologue->nom}} </h3>
+                        <span>{{$Psycologue->specialite_id}}</span>
+                    </div>
+                    <span class="DescripPsycho">
+                        {{$Psycologue->description}}
+                    </span>
+
+                </div>
+
+            </div>
+            <a  class="boutton" href="{{route('listePsycologue')}}">Liste des Psychologuess</a>
+        </section>
+
     </div>
-    <section class="container chat">
-        <div class="input">
-            <textarea name="input" id="input" ></textarea>
-            <div id="send" class="boutton" >Send</div>
-
-        </div>
-        <div id="message" class="message">
-
-            
-            
-            
-        </div>
-    </section>
+    
 
     @php
         $patient = Auth::guard('patient')->user();

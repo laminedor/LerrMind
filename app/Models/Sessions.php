@@ -17,7 +17,11 @@ class Sessions extends Model
     ];
 
     public function saveSession($data){
-        return $this->create($data);
+        $data2 = $this::where('psychologiste_id',$data['psychologiste_id'])
+                    ->where('patient_id',$data['patient_id'])->first();
+        if($data2 == null)
+            return $this->create($data);
+        return $data2;
     }
 
     public function recupereSessionsPsyco($id){

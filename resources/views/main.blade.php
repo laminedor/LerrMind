@@ -25,7 +25,7 @@
     @endphp
     <nav class="navbar navbar-light ">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{route('acceuil')}}">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="109.64" height="51.739" viewBox="0 0 109.64 51.739">
                     <defs>
                       <linearGradient id="linear-gradient" x1="0.5" y1="0.482" x2="0.5" y2="0.715" gradientUnits="objectBoundingBox">
@@ -60,6 +60,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="23.414" height="26.565" viewBox="0 0 23.414 26.565">
                         <path id="Tracé_9277" data-name="Tracé 9277" d="M15.263,4c6.211,0,11.263,4.043,11.263,9.011,0,3.275-2.138,6.212-5.632,7.81v5.706L14.88,22.016C8.847,21.855,4,17.877,4,13.011,4,8.043,9.053,4,15.263,4Z" transform="translate(-4 0.038)" fill="#ebebeb"/>
                         <path id="Tracé_9282" data-name="Tracé 9282" d="M6.3,0A6.3,6.3,0,1,1,0,6.3,6.3,6.3,0,0,1,6.3,0Z" transform="translate(10.813)" fill="#f04d9d"/>
+                        
                     </svg>
                     <div class="user dropdown">
                         <div class="dropdown-content">

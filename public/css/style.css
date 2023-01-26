@@ -70,11 +70,15 @@ nav{
     border-radius: 0.4rem;
 }
 
+a{
+    margin-top: 0.4rem;
+    width: fit-content !important;
+}
+
 .chat{
     height:  80%;
     background-color: rgba(245, 245, 245, 0.37);
     width: 100%;
-    margin: 2rem;
     border: 0.12rem solid #cecece63;
     border-radius: 0.4rem;
     display: flex;
@@ -112,6 +116,7 @@ nav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: fit-content;
 }
 
 .chat .message{
@@ -205,10 +210,11 @@ section{
     max-height: 100%;
 }
 
-.ConBout{
-    margin-top: 1rem !important;
+
+
+.droiteChatPatient{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     
 }
 
@@ -264,27 +270,28 @@ section{
     margin-top: 1rem;
 }
 
-.listPsycologue .AffichePsycho{
+.AffichePsycho{
     border: 0.12rem solid #cecece54;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     border-radius: 0.3rem;
     background-color: #f4bcd705;
+    box-shadow: 0px 0px 4px #0000000c;
 
 }
-.listPsycologue .AffichePsycho .headPsycho{
+.AffichePsycho .headPsycho{
     display: flex;
     flex-direction: row;
     font-family: 'Poppins Bold' !important; 
 }
 
-.listPsycologue .AffichePsycho .headPsycho h3{
+.AffichePsycho .headPsycho h3{
     margin-top: auto !important;
     margin-bottom: auto !important;
 }
 
-.listPsycologue .AffichePsycho .headPsycho span{
+.AffichePsycho .headPsycho span{
     padding: 0.5rem;
     font-size: larger;
     color: #F04D9D;
@@ -294,11 +301,11 @@ section{
     border-radius: 0.3rem;
 }
 
-.listPsycologue .AffichePsycho span{
+.AffichePsycho span{
     margin-top: 0.3rem;
 }
 
-.listPsycologue .AffichePsycho a{
+.AffichePsycho a{
     margin-top: 0.6rem;
     width: fit-content !important;
 }

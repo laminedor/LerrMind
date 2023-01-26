@@ -284,9 +284,8 @@
             </div>
         </div>
         <div class="ConBout">
-            <a  class="boutton" href="">Trouver un Psycologue</a>
+            <a  class="boutton" href="{{route('listePsycologue')}}">Trouver un Psycologue</a>
         </div>
-        
         
     </section>
 @endsection

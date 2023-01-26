@@ -21,4 +21,8 @@ class Psycologue extends User
     public function get(){
         return self::all();
     }
+
+    public function psycho($id){
+        return $this->where('specialite_id',$id)->first();
+    }
 }
