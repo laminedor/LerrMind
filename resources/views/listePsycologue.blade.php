@@ -11,7 +11,7 @@
                 <div class="col-lg-4 col-md-6 col-12 p-2">
                     <div class="AffichePsycho">
                         <div class="headPsycho">
-                            <h3>{{$Psycologue->prenom}} {{$Psycologue->nom}} </h3>
+                            <h4>{{$Psycologue->prenom}} {{$Psycologue->nom}} </h4>
                             <span>{{$Psycologue->specialite_id}}</span>
                         </div>
                         <span class="DescripPsycho">
@@ -52,7 +52,7 @@
                                     <div class=" ">
                                         <form method="POST" action="{{route('beginSession')}}" id="form{{$Psycologue->id}}" >
                                             @csrf
-                                            <input type="number" name="id" value="{{$Psycologue->id}}">
+                                            <input type="number" name="id" value="{{$Psycologue->id}}" hidden>
                                             <input type="text" name="titre" id="titre" placeholder="titre session"  autocomplete="off">
                                             <textarea name="description" id="description"  rows="5"></textarea>
                                             

@@ -14,7 +14,7 @@
             <div class="">
                 <div class="AffichePsycho">
                     <div class="headPsycho">
-                        <h3>{{$Psycologue->prenom}} {{$Psycologue->nom}} </h3>
+                        <h4>{{$Psycologue->prenom}} {{$Psycologue->nom}} </h4>
                         <span>{{$Psycologue->specialite_id}}</span>
                     </div>
                     <span class="DescripPsycho">

@@ -11,8 +11,23 @@
             </div>
         </section>
 
+        <section class="droiteChatPatient container">
+            <div class="">
+                <div class="AffichePsycho">
+                    <div class="headPsycho">
+                        <h4>{{$session->titre}}  </h4>
+                        
+                    </div>
+                    <span class="DescripPsycho">
+                        {{$session->description}}
+                    </span>
 
-    </div>
+                </div>
+
+            </div>
+            <a  class="boutton" href="{{route('listeSessions')}}">Liste des Sessions</a>
+        </section>
+
     
 
     @php

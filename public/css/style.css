@@ -53,7 +53,10 @@ a{
 nav{
     
 }
-
+.login{
+    margin-left: 0% !important;
+    margin-right: 0% !important;
+}
 .boutton{
     font-family: 'Poppins Regular';
     color: #F04D9D;
@@ -62,6 +65,10 @@ nav{
     border-radius: 0.4rem;
     transition: 0.3s;
     cursor: pointer;
+    width: fit-content;
+    margin-top: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .boutton:hover{
@@ -146,7 +153,7 @@ nav{
 
 
 
-.chat .input textarea{
+textarea{
     flex: auto;
     border: 0.12rem solid #cecece54;
     border-radius: 0.4rem;
@@ -155,9 +162,10 @@ nav{
     padding: 0.7rem;
     font-family: 'Poppins Light';
     overflow-y: scroll;
+    width: 100% !important;
 }
 
-.chat .input textarea:focus{
+textarea:focus{
     outline: none;
     border: 0.05rem solid #f04d9c44;
 }
@@ -282,7 +290,7 @@ section{
     font-family: 'Poppins Bold' !important; 
 }
 
-.AffichePsycho .headPsycho h3{
+.AffichePsycho .headPsycho h4{
     margin-top: auto !important;
     margin-bottom: auto !important;
 }

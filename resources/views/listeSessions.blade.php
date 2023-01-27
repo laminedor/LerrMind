@@ -10,17 +10,15 @@
             @foreach ($sessions as $session)
                 <div class="col-lg-4 col-md-6 col-12 p-2">
                     <div class="AffichePsycho">
-                        <!--
                         <div class="headPsycho">
-                            <h3> </h3>
-                            <span></span>
+                            <h4>{{$session->titre}}  </h4>
+                            
                         </div>
                         <span class="DescripPsycho">
-                            
+                            {{$session->description}}
                         </span>
-                         -->
                         <a class="boutton" href="{{route('sessionPsycho',$session->id)}}">
-                            session
+                            Consulter
                         </a>
 
                     </div>
