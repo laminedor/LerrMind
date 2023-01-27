@@ -60,8 +60,8 @@ class PsychologistesTableSeeder extends Seeder
 
             ],
             [
-                'nom' => 'Seck',
-                'prenom' => 'Soukey',
+                'nom' => 'Diop',
+                'prenom' => 'Issa Moussa',
                 'description' => "En tant que psychologue spécialisé en hypnose, je travaille avec les individus pour les aider à utiliser l'hypnose comme une technique thérapeutique pour atteindre leurs objectifs. Je peux utiliser l'hypnose pour aider les individus à gérer des problèmes tels que les troubles anxieux, les addictions, les troubles de la douleur et les troubles de l'alimentation. Je peux également utiliser l'hypnose pour aider les individus à améliorer leur estime de soi, leur confiance en eux-mêmes et leur performance. Je peux également utiliser l'hypnose pour aider les individus à surmonter les traumatismes passés et les blocages émotionnels. Je suis formé pour utiliser l'hypnose en respectant les normes éthiques et les protocoles de sécurité pour garantir une expérience positive pour les clients.",
                 'specialite_id' => 6,
                 'email' => 'Soukey@example.com',

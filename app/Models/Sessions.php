@@ -35,6 +35,11 @@ class Sessions extends Model
         $data = $this::where('id',$idSession)->first();
         return $data;
     }
+
+    public function listeSessionsPatient($idPati){
+        $data = $this::where('patient_id',$idPati)->get();
+        return $data;
+    }
     
     
 }

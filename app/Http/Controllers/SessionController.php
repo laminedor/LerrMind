@@ -17,14 +17,15 @@ class SessionController extends Controller
     //
 
 
-    public function beginSession($idPsycologue, Request $request){
-        dd($request);
+    public function beginSession(Request $request){
         $patient = Auth::guard('patient')->user();
         
         $data = [
             'dateCreation'=> date('Y-m-d H:i:s'),
-            'psychologiste_id' => $idPsycologue,
+            'psychologiste_id' => $request->id,
             'patient_id' => $patient->id,
+            'titre' => $request->titre,
+            'description' => $request->description,
         ];
 
         $SessionModel = new Sessions();
@@ -32,7 +33,34 @@ class SessionController extends Controller
         $session = $SessionModel->saveSession($data);
         
         $Psycologue = new Psycologue();
-        $Psycologue = $Psycologue->psycho($idPsycologue);
+        $Psycologue = $Psycologue->psycho($request->id);
+
+
+        $modelSpec = new Specialite();
+        $listeSpecs = $modelSpec->get();
+
+
+        foreach($listeSpecs as $Specs){
+            if($Psycologue->specialite_id == $Specs->id){
+                $Psycologue->specialite_id = $Specs->name;
+            }
+        }
+
+        //recupere les anciens messages
+        
+        return view('PageChatPatient', compact('session','Psycologue'));
+    }
+
+    public function continuerSession($idSession){
+        
+
+
+        $SessionModel = new Sessions();
+        
+        $session = $SessionModel->recupereSessions($idSession);
+        
+        $Psycologue = new Psycologue();
+        $Psycologue = $Psycologue->psycho($session->psychologiste_id );
 
 
         $modelSpec = new Specialite();

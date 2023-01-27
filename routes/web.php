@@ -36,7 +36,8 @@ Route::get('/chat', [ChatController::class, 'homeChatPatient'])->name('homeChatP
 Route::get('/chatPsycologue', [PsycologueController::class, 'chatPsycologue'])->name('chatPsycologue');
 Route::get('/listePsycologue', [PsycologueController::class, 'listePsycologue'])->name('listePsycologue');
 Route::get('/listeSessions', [SessionController::class, 'listeSessions'])->name('listeSessions');
-Route::get('/beginSession/{id}', [SessionController::class, 'beginSession'])->name('beginSession');
+Route::POST('/beginSession', [SessionController::class, 'beginSession'])->name('beginSession');
+Route::get('/continuerSession/{id}', [SessionController::class, 'continuerSession'])->name('continuerSession');
 Route::get('/sessionPsycho/{id}', [SessionController::class, 'sessionPsycho'])->name('sessionPsycho');
 
 

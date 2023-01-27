@@ -13,6 +13,7 @@ class PsycologueController extends Controller
 {
     public function listePsycologue(){
         
+
         $modelPsy = new Psycologue();
         $listePsycologues = $modelPsy->get();
 
@@ -27,8 +28,13 @@ class PsycologueController extends Controller
             }
             
         }
+        $patient = Auth::guard('patient')->user();
 
-        
+        if($patient != null){
+            $modelSession = new Sessions();
+            $sessions = $modelSession->listeSessionsPatient($patient->id);
+            return view('listePsycologue',compact('listePsycologues','sessions'));
+        }
         return view('listePsycologue',compact('listePsycologues'));
     }
 
