@@ -57,6 +57,14 @@ class MessageController extends Controller
         return $data;
     }
 
+    public function recupAncienSms(Request $request){
+        $idSession = $request->input('idSession');
+        $modelMess = new Message();
+        $messages = $modelMess->messagesSession($idSession);
+        $messages = response()->json($messages);
+        return $messages;
+    }
+
 
 
     

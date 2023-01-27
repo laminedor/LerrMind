@@ -41,12 +41,15 @@
 
 
     <script>
+        var sms=document.getElementById('message');
         var idSession =  "{{$session->id}}";
-        var hauteur = $("#message").height();;
+        var hauteur = $("#message").height();
+        afficheAncienMessages();
+            
 
         $("#send").click(function(){
             var inputValue = $("#input").val();
-            let sms=document.getElementById('message');
+
             
             var dataSend = {
                 _token: "{{ csrf_token() }}",
@@ -72,10 +75,30 @@
             });
         });
 
+        function afficheAncienMessages() {
+            let dataReceive = {               
+                idSession: idSession,
+            };
+            $.ajax({
+                url: "{{ route('recupAncienSms') }}",
+                type: 'GET',
+                data: dataReceive,
+                success: function(response) {
+                    for(i=0 ; i<response.length ; i++){
+                        let items = document.createElement('span');
+                        items.innerText=response[i].content;
+                        if(response[i].envoyeur == 'patient')
+                            items.classList.add("droite");
+                        sms.appendChild(items);
+                        hauteur = hauteur + 2*$(items).height();
+                        $(sms).scrollTop(hauteur);
+                    } 
+                }
+            });
+        }
 
         function displayMessages() {
-            let sms=document.getElementById('message');
-            var dataReceive = {               
+            let dataReceive = {               
                 idSession: idSession,
             };
             $.ajax({
@@ -94,6 +117,6 @@
             });
         }
 
-        setInterval(displayMessages, 500);
+        //setInterval(displayMessages, 500);
     </script>
 @endsection

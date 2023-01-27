@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Message extends Model
 {
@@ -28,5 +29,27 @@ class Message extends Model
             }
         }
         return $data;
+    }
+
+
+    public function messagesSession($id){  
+        if($this::where('session_id',$id)->exists()){
+            $patient = Auth::guard('patient')->user();
+            $envoyeur = 'patient';
+            if($patient == null){
+                $envoyeur = 'psycologue';
+                
+            }
+            $data = $this::where('session_id',$id)->get();
+            if($data != null){
+                foreach($data as $dat){
+                    if($dat-> dateReceive == null and $dat->envoyeur != $envoyeur)
+                        $dat-> dateReceive = date('Y-m-d H:i:s');
+                    $dat->save();
+                }
+            }
+            return $data;
+        }   
+        return -1;
     }
 }

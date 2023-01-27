@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
 use App\Models\Psycologue;
 use App\Models\Sessions;
 use App\Models\Specialite;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+use function PHPSTORM_META\type;
 
 class SessionController extends Controller
 {
@@ -41,7 +44,8 @@ class SessionController extends Controller
             }
         }
 
-
+        //recupere les anciens messages
+        
         return view('PageChatPatient', compact('session','Psycologue'));
     }
 }
