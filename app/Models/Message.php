@@ -20,7 +20,9 @@ class Message extends Model
 
 
     public function recupereMessages($data){  
-        $data = $this::where('envoyeur',$data['envoyeur'])->where('dateReceive',NULL)->get();
+        $data = $this::where('envoyeur',$data['envoyeur'])
+                        ->where('session_id',$data['session_id'])
+                        ->where('dateReceive',NULL)->get();
         
         if($data != null){
             foreach($data as $dat){

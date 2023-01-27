@@ -35,7 +35,9 @@ Route::get('/recupAncienSms', [MessageController::class, 'recupAncienSms'])->nam
 Route::get('/chat', [ChatController::class, 'homeChatPatient'])->name('homeChatPatient');
 Route::get('/chatPsycologue', [PsycologueController::class, 'chatPsycologue'])->name('chatPsycologue');
 Route::get('/listePsycologue', [PsycologueController::class, 'listePsycologue'])->name('listePsycologue');
+Route::get('/listeSessions', [SessionController::class, 'listeSessions'])->name('listeSessions');
 Route::get('/beginSession/{id}', [SessionController::class, 'beginSession'])->name('beginSession');
+Route::get('/sessionPsycho/{id}', [SessionController::class, 'sessionPsycho'])->name('sessionPsycho');
 
 
 Route::post('/authentification', [AuthentificationController::class, 'authentification'])->name('authentification');

@@ -48,4 +48,21 @@ class SessionController extends Controller
         
         return view('PageChatPatient', compact('session','Psycologue'));
     }
+
+
+    public function sessionPsycho($id){
+        $psyco = Auth::guard('psycologue')->user();
+        $session = new Sessions();
+        $session = $session->recupereSessions($id);
+        return view('PageChatPsycho', compact('session'));
+    }
+
+
+
+    public function listeSessions(){
+        $psyco = Auth::guard('psycologue')->user();
+        $modelSessions = new Sessions();
+        $sessions= $modelSessions->recupereSessionsPsyco($psyco->id);
+        return view('listeSessions',compact('sessions'));
+    }
 }

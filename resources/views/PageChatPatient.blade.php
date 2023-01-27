@@ -68,9 +68,7 @@
                     sms.appendChild(items);
                     hauteur = hauteur + 2*$(items).height() ;
                     $(sms).scrollTop(hauteur);
-                    $('#input').val(null);
-                    
-                    
+                    $('#input').val(null);   
                 }
             });
         });
@@ -117,6 +115,6 @@
             });
         }
 
-        //setInterval(displayMessages, 500);
+        setInterval(displayMessages, 500);
     </script>
 @endsection

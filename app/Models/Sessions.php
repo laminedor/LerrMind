@@ -28,6 +28,11 @@ class Sessions extends Model
         $data = $this::where('psychologiste_id',$id)->get();
         return $data;
     }
+
+    public function recupereSessions($idSession){
+        $data = $this::where('id',$idSession)->first();
+        return $data;
+    }
     
     
 }

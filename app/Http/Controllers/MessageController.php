@@ -31,6 +31,8 @@ class MessageController extends Controller
 
         $ModelMessage = new Message();
         $ModelMessage = $ModelMessage->store($data); 
+        $message = response()->json($ModelMessage);
+        return $message;
     }
 
     public function recupSms(Request $request)

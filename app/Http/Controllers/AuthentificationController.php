@@ -24,7 +24,7 @@ class AuthentificationController extends Controller
         }elseif($user_type == 'psycologue'){
             if (Auth::guard('psycologue')->attempt($credentials)) {
                 // Authentication passed...
-                return redirect()->route('chatPsycologue');
+                return redirect()->route('listeSessions');
             }else{
                 // Authentication failed...
                 return redirect()->back()->withErrors(['email' => 'Les informations d\'identification fournies sont incorrectes.']);

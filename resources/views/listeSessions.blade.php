@@ -4,21 +4,23 @@
     
 @endphp
     <section class="list container">
-        <h1 class="titre">Liste des <span>Psychologues</span> </h1>
+        <h1 class="titre">Liste des <span>Sessions</span> </h1>
         <div class="listPsycologue row">
 
-            @foreach ($listePsycologues as $Psycologue)
+            @foreach ($sessions as $session)
                 <div class="col-lg-4 col-md-6 col-12 p-2">
                     <div class="AffichePsycho">
+                        <!--
                         <div class="headPsycho">
-                            <h3>{{$Psycologue->prenom}} {{$Psycologue->nom}} </h3>
-                            <span>{{$Psycologue->specialite_id}}</span>
+                            <h3> </h3>
+                            <span></span>
                         </div>
                         <span class="DescripPsycho">
-                            {{$Psycologue->description}}
+                            
                         </span>
-                        <a class="boutton" href="{{route('beginSession',$Psycologue->id)}}">
-                            Demarer Session
+                         -->
+                        <a class="boutton" href="{{route('sessionPsycho',$session->id)}}">
+                            session
                         </a>
 
                     </div>

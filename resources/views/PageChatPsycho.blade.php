@@ -1,30 +1,22 @@
 @extends('main')
 @section('ContenuePage')
-    <div class="ConBout">
-        <a  class="boutton" href="{{route('listePsycologue')}}">Trouver un Psycologue</a>
+        <section class="container chat ">
+            <div class="input">
+                <textarea name="input" id="input" ></textarea>
+                <div id="send" class="boutton" >Send</div>
+    
+            </div>
+            <div id="message" class="message">
+       
+            </div>
+        </section>
+
+
     </div>
-    <section class="container chat">
-        <div class="input">
-            <textarea name="input" id="input" ></textarea>
-            <div id="send" class="boutton" >Send</div>
-
-        </div>
-        <div id="message" class="message">
-
-            
-            
-            
-        </div>
-    </section>
+    
 
     @php
-        $patient = Auth::guard('patient')->user();
-        $psycologue = Auth::guard('psycologue')->user();
-        if ($patient) {
-            $user = 1;
-        }else {
-            $user = 2;
-        }
+        $psyco = Auth::guard('psycologue')->user();
 
     @endphp
 
@@ -34,27 +26,20 @@
 
 
     <script>
-        var connect = "{{$user}}";
-
-        if(connect == 1){
-            var envoyeur='patient';
-        }    
-        else{
-            var envoyeur='psycologue';
-        }
+        var sms=document.getElementById('message');
         var idSession =  "{{$session->id}}";
-        var hauteur = $("#message").height();;
+        var hauteur = $("#message").height();
+        afficheAncienMessages();
+            
 
         $("#send").click(function(){
             var inputValue = $("#input").val();
-            let sms=document.getElementById('message');
-            
+
             
             var dataSend = {
                 _token: "{{ csrf_token() }}",
                 message: inputValue,      
                 idSession: idSession,
-                envoyeur: envoyeur,
             };
 
             $.ajax({
@@ -75,10 +60,30 @@
             });
         });
 
+        function afficheAncienMessages() {
+            let dataReceive = {               
+                idSession: idSession,
+            };
+            $.ajax({
+                url: "{{ route('recupAncienSms') }}",
+                type: 'GET',
+                data: dataReceive,
+                success: function(response) {
+                    for(i=0 ; i<response.length ; i++){
+                        let items = document.createElement('span');
+                        items.innerText=response[i].content;
+                        if(response[i].envoyeur == 'psycologue')
+                            items.classList.add("droite");
+                        sms.appendChild(items);
+                        hauteur = hauteur + 2*$(items).height();
+                        $(sms).scrollTop(hauteur);
+                    } 
+                }
+            });
+        }
 
         function displayMessages() {
-            let sms=document.getElementById('message');
-            var dataReceive = {               
+            let dataReceive = {               
                 idSession: idSession,
             };
             $.ajax({
