@@ -17,10 +17,10 @@ class SpecialitiesTableSeeder extends Seeder
         $specialites = [
             ['name' => 'Couple'],
             ['name' => 'Famille'],
-            ['name' => 'Confiance '],
+            ['name' => 'Confiance'],
             ['name' => 'Stresse'],
             ['name' => 'Depression'],
-            ['name' => 'Hypnose ']
+            ['name' => 'Hypnose']
         ];
         DB::table('specialites')->insert($specialites);
     }

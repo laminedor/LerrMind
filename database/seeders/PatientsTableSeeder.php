@@ -2,38 +2,30 @@
 
 namespace Database\Seeders;
 
+use App\Models\Patient;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
+use Illuminate\Support\Facades\Hash;
 
 class PatientsTableSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $patients = [
-            [
-                'nom' => 'Alex',
-                'prenom' => 'Jones',
-                'email' => 'alexjones@example.com',
-                'password' => bcrypt('password')
-            ],
-            [
-                'nom' => 'Wilson',
-                'prenom' => 'Emma',
-                'email' => 'emmawilson@example.com',
-                'password' => bcrypt('password')
-            ],
-            [
-                'nom' => 'Brown',
-                'prenom' => 'Josh',
-                'email' => 'joshbrown@example.com',
-                'password' => bcrypt('password')
-            ]
-        ];
-        DB::table('patients')->insert($patients);
+        $faker = Faker::create();
+
+        for ($i = 0; $i < 50; $i++) {
+            Patient::create([
+                'nom' => $faker->lastName,
+                'prenom' => $faker->firstName,
+                'email' => $faker->unique()->email,
+                'password' => Hash::make('password'),
+            ]);
+        }
     }
 }

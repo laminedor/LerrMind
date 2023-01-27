@@ -1,6 +1,12 @@
 @extends('main')
 @section('ContenuePage')
+@php
+    $patient = Auth::guard('patient')->user();
+    $psycologue = Auth::guard('psycologue')->user();
 
+    
+
+@endphp
     <section class="presentation container">
         <div class="pres row">
             <div class="text col-12 col-md-6">
@@ -284,7 +290,14 @@
             </div>
         </div>
         <div class="ConBout">
-            <a  class="boutton" href="{{route('listePsycologue')}}">Trouver un Psycologue</a>
+
+            @if ($psycologue != null)
+              <a  class="boutton" href="{{route('listeSessions')}}">Liste des Sessions</a>
+            @else
+              <a  class="boutton" href="{{route('listePsycologue')}}">Trouver un Psycologue</a>
+            @endif
+            
+            
         </div>
         
     </section>

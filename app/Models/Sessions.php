@@ -14,6 +14,8 @@ class Sessions extends Model
         'dateCreation',
         'psychologiste_id',
         'patient_id',
+        'titre',
+        'description',
     ];
 
     public function saveSession($data){

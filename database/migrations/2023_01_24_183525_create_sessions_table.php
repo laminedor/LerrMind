@@ -16,6 +16,8 @@ class CreateSessionsTable extends Migration
         date_default_timezone_set('Africa/Dakar');
         Schema::create('sessions', function (Blueprint $table) {
             $table->id();
+            $table->string('titre');
+            $table->text('description');
             $table->dateTime('dateCreation');
             $table->unsignedBigInteger('psychologiste_id');
             $table->unsignedBigInteger('patient_id');

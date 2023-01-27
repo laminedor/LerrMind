@@ -17,7 +17,8 @@ class SessionController extends Controller
     //
 
 
-    public function beginSession($idPsycologue){
+    public function beginSession($idPsycologue, Request $request){
+        dd($request);
         $patient = Auth::guard('patient')->user();
         
         $data = [
