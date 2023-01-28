@@ -32,6 +32,34 @@ class Message extends Model
         }
         return $data;
     }
+    public function NotifMessage(){  
+        $patient = Auth::guard('patient')->user();
+        $psyco = Auth::guard('psycologue')->user();
+        $envoyeur = 'patient';
+        if($patient != null){
+            $envoyeur = 'psycologue';
+        }
+
+        $session = new Sessions();
+
+        if($psyco != null){
+            $sessions = $session->recupereSessionsPsyco($psyco->id);
+            foreach($sessions as $session){
+                if($this::where('envoyeur',$envoyeur)->where('session_id',$session->id)->where('dateReceive',NULL)->exists()){
+                    return 1;
+                }
+            }
+        }
+        if($patient != null){
+            $sessions = $session->recupereSessionsPatient($patient->id);
+            foreach($sessions as $session){
+                if($this::where('envoyeur',$envoyeur)->where('session_id',$session->id)->where('dateReceive',NULL)->exists()){
+                    return 1;
+                }
+            }
+        }
+        return 0;   
+    }
 
 
     public function messagesSession($id){  

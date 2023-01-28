@@ -31,6 +31,8 @@ Route::get('/login', function () {
 
 Route::POST('/sendSms', [MessageController::class, 'sendSms'])->name('sendSms');
 Route::get('/recupSms', [MessageController::class, 'recupSms'])->name('recupSms');
+
+Route::get('/notification', [MessageController::class, 'notification'])->name('notification');
 Route::get('/recupAncienSms', [MessageController::class, 'recupAncienSms'])->name('recupAncienSms');
 Route::get('/chat', [ChatController::class, 'homeChatPatient'])->name('homeChatPatient');
 Route::get('/chatPsycologue', [PsycologueController::class, 'chatPsycologue'])->name('chatPsycologue');

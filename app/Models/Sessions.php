@@ -31,6 +31,11 @@ class Sessions extends Model
         return $data;
     }
 
+    public function recupereSessionsPatient($id){
+        $data = $this::where('patient_id',$id)->get();
+        return $data;
+    }
+
     public function recupereSessions($idSession){
         $data = $this::where('id',$idSession)->first();
         return $data;

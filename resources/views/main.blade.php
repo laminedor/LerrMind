@@ -19,10 +19,9 @@
             $user = $psycologue;
         } else {
             $user = $patient;
-        }
-        
-	  
+        } 
     @endphp
+
     <nav class="navbar navbar-light ">
         <div class="container">
             <a class="navbar-brand" href="{{route('acceuil')}}">
@@ -59,7 +58,7 @@
                 <div class="userNav">
                     <svg xmlns="http://www.w3.org/2000/svg" width="23.414" height="26.565" viewBox="0 0 23.414 26.565">
                         <path id="Tracé_9277" data-name="Tracé 9277" d="M15.263,4c6.211,0,11.263,4.043,11.263,9.011,0,3.275-2.138,6.212-5.632,7.81v5.706L14.88,22.016C8.847,21.855,4,17.877,4,13.011,4,8.043,9.053,4,15.263,4Z" transform="translate(-4 0.038)" fill="#ebebeb"/>
-                        <path id="Tracé_9282" data-name="Tracé 9282" d="M6.3,0A6.3,6.3,0,1,1,0,6.3,6.3,6.3,0,0,1,6.3,0Z" transform="translate(10.813)" fill="#f04d9d"/>
+                        <path class="notif" id="Tracé_9282" data-name="Tracé 9282" d="M6.3,0A6.3,6.3,0,1,1,0,6.3,6.3,6.3,0,0,1,6.3,0Z" transform="translate(10.813)" fill="#f04d9d"/>
                         
                     </svg>
                     <div class="user dropdown">
@@ -101,6 +100,30 @@
         </div>
     </nav>
     @yield('ContenuePage')
+    @if ($user != null)
+
+    <script>
+
+        function notification() {
+
+            $.ajax({
+                url: "{{ route('notification') }}",
+                type: 'GET',
+                success: function(response) {
+                    if(response == 1){
+                        $('path.notif').css("display", "block");
+                    }
+                    else{
+                            $('path.notif').css("display", "none");
+                    }
+                    
+                }
+            });
+        }
+        setInterval(notification, 4000);
+    </script>
+        
+    @endif
     
 </body>
 </html>

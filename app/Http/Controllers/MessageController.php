@@ -59,6 +59,15 @@ class MessageController extends Controller
         return $data;
     }
 
+
+    public function notification(){
+
+        $ModelMessage = new Message();
+
+        
+        return $ModelMessage->NotifMessage();
+    }
+
     public function recupAncienSms(Request $request){
         $idSession = $request->input('idSession');
         $modelMess = new Message();

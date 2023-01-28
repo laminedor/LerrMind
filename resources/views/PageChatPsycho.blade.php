@@ -117,6 +117,6 @@
             });
         }
 
-        setInterval(displayMessages, 500);
+        setInterval(displayMessages, 1000);
     </script>
 @endsection
