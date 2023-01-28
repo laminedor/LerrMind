@@ -125,7 +125,7 @@ footer{
     background-color: #fcfcfc;
     color: rgb(45, 45, 45);
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
     font-family: 'Poppins Regular';
     box-shadow: 0px 0px 6px #00000012;
 
@@ -440,5 +440,43 @@ section{
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+
+.listeDom{
+    margin-top: 8rem !important;
+    
+}
+
+.titreDomaine{
+    text-align: center;
+    margin-bottom: 2rem !important;
+}
   
+.domaine{
+    display: flex;
+    flex-direction: row;
+}
+
+.domaine .svg{
+    display: flex;
+    flex-direction: row;
+    width: 40% !important;
+    justify-content: center;
+}
+
+.domaine .descript{
+    display: flex;
+    flex-direction: column;
+    width: 60% !important;
+}
+
+.domaine .descript .titre{
+    font-family: 'Poppins Bold';
+    color: #F04D9D;
+}
+
+.domaine .descript p{
+    font-family: 'Poppins Light';
+}
+
 
