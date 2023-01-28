@@ -50,6 +50,12 @@ a{
     text-decoration: none !important;
 }
 
+.ConBout{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 path.notif{
     fill: #ff067e !important;
     filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.282));
@@ -111,7 +117,35 @@ path.notif{
     background: rgba(191, 191, 191, 0.127);
 }
 
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #fcfcfc;
+    color: rgb(45, 45, 45);
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Poppins Regular';
+    box-shadow: 0px 0px 6px #00000012;
 
+}
+
+nav{
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #fcfcfc;
+    box-shadow: 0px 3px 6px #0000000c;
+
+
+}
+
+.page{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+}
 
 .chat .input{
     flex:auto;

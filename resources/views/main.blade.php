@@ -99,29 +99,37 @@
             
         </div>
     </nav>
-    @yield('ContenuePage')
+    <div class="page" >
+        @yield('ContenuePage')
+    </div>
+    
+    <footer>
+        <span>Copyright 2023 - Design By Lamine Gueye</span>
+    </footer>
+
+
     @if ($user != null)
 
-    <script>
+        <script>
 
-        function notification() {
+            function notification() {
 
-            $.ajax({
-                url: "{{ route('notification') }}",
-                type: 'GET',
-                success: function(response) {
-                    if(response == 1){
-                        $('path.notif').css("display", "block");
+                $.ajax({
+                    url: "{{ route('notification') }}",
+                    type: 'GET',
+                    success: function(response) {
+                        if(response == 1){
+                            $('path.notif').css("display", "block");
+                        }
+                        else{
+                                $('path.notif').css("display", "none");
+                        }
+                        
                     }
-                    else{
-                            $('path.notif').css("display", "none");
-                    }
-                    
-                }
-            });
-        }
-        setInterval(notification, 4000);
-    </script>
+                });
+            }
+            setInterval(notification, 4000);
+        </script>
         
     @endif
     
